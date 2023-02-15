@@ -47,10 +47,13 @@ Therefore, as long as the node has Docker installed, MHub models can run anywher
 on a research workstation in a hospital, on a research server or in the cloud.
 
 <details>
-  <summary>Learn More</summary>
+  <summary>Learn How to Setup Docker on Your System</summary>
 
 ## Install Docker on Linux 
 
+<details>
+  <summary>Learn More</summary>
+  
 To install docker on Linux, you can follow Docker's official documentation at:
 
 https://docs.docker.com/desktop/install/linux-install/
@@ -69,7 +72,12 @@ https://docs.docker.com/desktop/install/ubuntu/
 > Docker Desktop includes the Docker daemon (dockerd), the Docker client (docker), Docker Compose, 
 Docker Content Trust, Kubernetes, and Credential Helper.
 
+</details>
+  
 ## Install Docker on Windows
+
+<details>
+  <summary>Learn More</summary>
 
 To install docker on Windows, please follow Docker's official documentation at:
 
@@ -85,6 +93,8 @@ performs the installation is automatically added to this group, but other users 
 manually. This allows the administrator to control who has access to Docker Desktop.
 
 </details>
+  
+</details>
 
 
 # Usage
@@ -95,10 +105,13 @@ considerably faster than building images on your system, we advise you do so if 
 platform-related issues.
 
 <details>
+  <summary>Learn How to Use MHub Models</summary>
+
+## Running MHub Models from CLI
+
+<details>
   <summary>Learn More</summary>
-
-## Running MHub Containers from CLI
-
+  
 ### Pulling Containers from Dockerhub
 
 All the MHub images are multi-platform whenever possible, and [made available through 
@@ -230,13 +243,21 @@ for](https://docs.docker.com/build/building/multi-platform/), you're free to do 
 You will now be able to run the container as explained in the "Pulling Containers from Dockerhub" 
 section above.
 
-## Integration with 3D Slicer
+</details>
+  
+## Running MHub Models from 3D Slicer
 
+<details>
+  <summary>Learn More</summary>
+  
 You can find instructions regarding how to install our 3D Slicer plug-in in less than five minutes 
 at the following repository:
 
 https://github.com/AIM-Harvard/SlicerMHubRunner
 
+
+</details>
+  
 </details>
 
 # Contributing to MHub
