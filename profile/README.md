@@ -262,7 +262,10 @@ https://github.com/AIM-Harvard/SlicerMHubRunner
 
 # Contributing to MHub
 
-We want to make MHub crowdsourced through contributions by the scientific research community.
-
-We are in the process of developing tools to allow researchers and developers to contribute to 
-MHub with the models they developed.
+We want to make MHub crowdsourced through contributions by the scientific research community. We are still in the process of developing tools to allow researchers and developers to contribute to MHub with their models.
+  
+For the time being, if you are interested in contributing to MHub, you can reach us at:
+  
+📫 dbontempi [at] bwh [dot] harvard [dot] edu
+  
+📫 lnuernberg [at] bwh [dot] harvard [dot] edu
