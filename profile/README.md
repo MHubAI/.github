@@ -99,6 +99,8 @@ manually. This allows the administrator to control who has access to Docker Desk
 
 # Usage
 
+![alt text](../images/mhub_usage.png)
+
 All the MHub images are multi-platform whenever possible, and [made available through 
 Dockerhub](https://hub.docker.com/repositories/mhubai). Since pulling images from Dockerhub is 
 considerably faster than building images on your system, we advise you do so if you don't have 
