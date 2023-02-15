@@ -16,18 +16,6 @@ five minutes** by reading our guide to the [MHub CLI
 quickstart](#running-mhub-containers-from-cli) and to the [MHub 3D Slicer plugin quick 
 setup](#integration-with-3d-slicer). 
 
-
-# Table of Contents
-- [About MHub](#about-mhub-)
-- [Installation](#installation)
-  - [Windows](#install-docker-on-windows)
-  - [Linux](#install-docker-on-linux)
-- [Usage](#usage)
-  - [Command-line Interface (CLI)](#running-mhub-containers-from-cli)
-  - [3D Slicer](#integration-with-3d-slicer)
-- [Contributing to MHub](#contributing-to-mhub)
-- [Known Issues](#known-issues)
-
 # About MHub 🤖🏥🐳
 
 MHub is a repository of self-contained deep learning models pretrained for a wide variety of 
@@ -57,6 +45,9 @@ and run on any machine that supports Docker.
 
 Therefore, as long as the node has Docker installed, MHub models can run anywhere - on a laptop, 
 on a research workstation in a hospital, on a research server or in the cloud.
+
+<details>
+  <summary>Learn More</summary>
 
 ## Install Docker on Linux 
 
@@ -93,7 +84,18 @@ administrator privileges, provided they are members of the docker-users group. T
 performs the installation is automatically added to this group, but other users must be added 
 manually. This allows the administrator to control who has access to Docker Desktop.
 
+</details>
+
+
 # Usage
+
+All the MHub images are multi-platform whenever possible, and [made available through 
+Dockerhub](https://hub.docker.com/repositories/mhubai). Since pulling images from Dockerhub is 
+considerably faster than building images on your system, we advise you do so if you don't have 
+platform-related issues.
+
+<details>
+  <summary>Learn More</summary>
 
 ## Running MHub Containers from CLI
 
@@ -235,6 +237,7 @@ at the following repository:
 
 https://github.com/AIM-Harvard/SlicerMHubRunner
 
+</details>
 
 # Contributing to MHub
 
@@ -242,61 +245,3 @@ We want to make MHub crowdsourced through contributions by the scientific resear
 
 We are in the process of developing tools to allow researchers and developers to contribute to 
 MHub with the models they developed.
-
-# Known Issues
-
-## Docker Support of Machines with AppleSilicon (e.g., M1 Processors)
-
-The users building Docker containers on Apple Silicon devices still face some issues, as 
-documented in many blogposts all over the web.
-
-For instance, some packages might not have an available candidate for installation if you try to 
-build a Linux-based Docker image on an M1 macbook:
-
-```
-# build the mhubai base image without CUDA support
-cd git/mhub/mhub/dockerfiles/nocuda
-
-[+] Building 3.9s (7/18)                                                                                
- => [internal] load build definition from Dockerfile                                               
-0.0s
- => => transferring dockerfile: 37B                                                                
-0.0s
- => [internal] load .dockerignore                                                                  
-0.0s
- => => transferring context: 2B                                                                    
-0.0s
- => [internal] load metadata for docker.io/library/ubuntu:20.04                                    
-0.7s
- => CACHED [ 1/15] FROM docker.io/library/ubuntu:20.04@sha256:0e0402cd13f68137edb0266e1d2c682f217  
-0.0s
- => [ 2/15] RUN rm -f /etc/apt/sources.list.d/*.list                                               
-0.2s
- => [ 3/15] RUN ln -snf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime && echo Europe/Amster  
-0.1s
- => ERROR [ 4/15] RUN apt update && apt install -y --no-install-recommends   wget   unzip   sudo   
-2.8s
-
-...
-
-#7 2.274 Reading package lists...
-#7 2.680 Building dependency tree...
-#7 2.767 Reading state information...
-#7 2.777 Package plastimatch is not available, but is referred to by another package.
-#7 2.777 This may mean that the package is missing, has been obsoleted, or
-#7 2.777 is only available from another source
-#7 2.777 
-#7 2.785 E: Package 'plastimatch' has no installation candidate
-```
-
-If you want to know more, there are some [very relevant posts about this exact 
-issue](https://groups.google.com/g/plastimatch/c/IGpuVP5ZLm8?pli=1).
-
-The only way this problem can be solved is by running the `docker build` command specifying the 
-platform, with the `--platform` flag. In our case, passing the argument `--platform linux/amd64` 
-will result in a successful build, with the caveat that all the libraries installed in the Docker 
-container will of course not be optimized for the Apple Silicon processor. This practically means 
-that running computationally intensive tasks (e.g., the `mhubai/totalsegmentator:nocuda` image) 
-will take approximately 10 times longer than what it would take if AppleSilicon-optimized 
-libraries were parsed.
-
